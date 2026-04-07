@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Antigravity</title>
+  <meta name="description" content="Calculadora Antigravity — diseño glassmorphism premium con historial de operaciones." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <main class="calculator-wrapper" role="main">
+    <div class="calculator" aria-label="Calculadora Antigravity">
+
+      <!-- Título visible dentro del card -->
+      <h1 class="calc-title">Calculadora Antigravity</h1>
+
+      <!-- Pantalla -->
+      <div class="display" aria-live="polite">
+        <div class="display-expression" id="expression" aria-label="Expresión actual"></div>
+        <div class="display-result" id="result" aria-label="Resultado">0</div>
+      </div>
+
+      <!-- Teclado — layout según imagen:
+           Fila 1 : [C ×2cols]  [÷]  [×]
+           Fila 2 : [7] [8] [9] [−]
+           Fila 3 : [4] [5] [6] [+]
+           Fila 4 : [1] [2] [3] [= ×2rows]
+           Fila 5 : [0 ×2cols]  [.]
+      -->
+      <div class="keypad">
+
+        <!-- Fila 1 -->
+        <button id="btn-clear"    class="btn btn-function btn-wide" data-action="clear"    aria-label="Limpiar">C</button>
+        <button id="btn-divide"   class="btn btn-operator"          data-action="operator" data-value="/" aria-label="Dividir">÷</button>
+        <button id="btn-multiply" class="btn btn-operator"          data-action="operator" data-value="*" aria-label="Multiplicar">×</button>
+
+        <!-- Fila 2 -->
+        <button id="btn-7"        class="btn btn-number"            data-action="digit"    data-value="7">7</button>
+        <button id="btn-8"        class="btn btn-number"            data-action="digit"    data-value="8">8</button>
+        <button id="btn-9"        class="btn btn-number"            data-action="digit"    data-value="9">9</button>
+        <button id="btn-subtract" class="btn btn-operator"          data-action="operator" data-value="-" aria-label="Restar">−</button>
+
+        <!-- Fila 3 -->
+        <button id="btn-4"        class="btn btn-number"            data-action="digit"    data-value="4">4</button>
+        <button id="btn-5"        class="btn btn-number"            data-action="digit"    data-value="5">5</button>
+        <button id="btn-6"        class="btn btn-number"            data-action="digit"    data-value="6">6</button>
+        <button id="btn-add"      class="btn btn-operator"          data-action="operator" data-value="+" aria-label="Sumar">+</button>
+
+        <!-- Fila 4 (= ocupa fila 4 y 5 en la col 4) -->
+        <button id="btn-1"        class="btn btn-number"            data-action="digit"    data-value="1">1</button>
+        <button id="btn-2"        class="btn btn-number"            data-action="digit"    data-value="2">2</button>
+        <button id="btn-3"        class="btn btn-number"            data-action="digit"    data-value="3">3</button>
+        <button id="btn-equal"    class="btn btn-equal btn-tall"    data-action="equal"    aria-label="Igual">=</button>
+
+        <!-- Fila 5 -->
+        <button id="btn-0"        class="btn btn-number btn-double" data-action="digit"    data-value="0">0</button>
+        <button id="btn-dot"      class="btn btn-number"            data-action="decimal"  aria-label="Punto decimal">.</button>
+
+      </div>
+    </div>
+
+    <!-- Historial de operaciones -->
+    <section class="history-panel" aria-label="Historial de operaciones">
+      <div class="history-header">
+        <h2 class="history-title">
+          <span class="history-icon">⏱</span> Historial
+        </h2>
+        <button id="btn-clear-history" class="btn-clear-history" aria-label="Limpiar historial">
+          Limpiar historial
+        </button>
+      </div>
+      <ol id="history-list" class="history-list" aria-live="polite">
+        <li class="history-empty" id="history-empty">Sin operaciones aún</li>
+      </ol>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
